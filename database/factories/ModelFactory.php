@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\seller::class, function (Faker\Generator $faker) {
+$factory->define(App\persons::class, function (Faker\Generator $faker) {
     
     return [
         'name' => $faker->name,
@@ -20,6 +20,11 @@ $factory->define(App\seller::class, function (Faker\Generator $faker) {
         'mobile' => $faker->phoneNumber ,
         'token' => str_random(10),
         'bank_card'=>$faker->phoneNumber ,
+        'telegram_id'=>$faker->name,
+        'password'=>str_random(10),
+        'remember_token'=>str_random(10),
+        'profile'=>'{"a":"'.$faker->word.'"}',
+
         'status'=>0,
     ];
 });
