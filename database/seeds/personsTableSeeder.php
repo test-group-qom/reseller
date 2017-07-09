@@ -10,8 +10,9 @@ class personsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-     
-        factory(App\persons::class,50)->create();
+    {   
+         factory(App\persons::class,50)->create()->each(function ($u) {
+        $u->rolls()->save(factory(App\rolls::class)->make());;
+         });
     }
 }

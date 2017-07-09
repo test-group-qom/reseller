@@ -24,7 +24,15 @@ $factory->define(App\persons::class, function (Faker\Generator $faker) {
         'password'=>str_random(10),
         'remember_token'=>str_random(10),
         'profile'=>'{"a":"'.$faker->word.'"}',
-
         'status'=>0,
     ];
+});
+$factory->define(App\rolls::class, function (Faker\Generator $faker) {
+  
+    return [
+        'type' => $faker->name,
+        'person_id' =>rand(1,50),
+        'details' => '{"b":"'.$faker->word.'"}',
+
+        ];
 });

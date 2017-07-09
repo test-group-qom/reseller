@@ -11,4 +11,10 @@ class persons extends Model
      protected $fillable = ['id','name','username','token','mobile','bank_card','telegram_id','password','remember_token','profile','status'];
      protected $table='persons';
      protected $dates = ['deleted_at'];
+
+
+   public function rolls()
+    {
+        return $this->hasMany('App\rolls' ,'person_id');
+    }
 }
