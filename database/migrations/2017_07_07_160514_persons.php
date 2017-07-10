@@ -15,15 +15,15 @@ class persons extends Migration
     {
         Schema::create('persons', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('username');
+            $table->string('name')->nullable();
+            $table->string('username')->nullable();
             $table->string('mobile');
-            $table->string('token');
-            $table->string('bank_card');
-            $table->string('status');
+            $table->string('token')->nullable();
+            $table->string('bank_card')->nullable();
+            $table->string('status')->nullable();
             $table->string('telegram_id');
             $table->string('password');
-            $table->json('profile');
+            $table->json('profile')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

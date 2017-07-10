@@ -17,4 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::resource('task', 'persons');
-Route::resource('person', 'personctrl');
+Route::resource('person', 'costumer');
+Route::resource('admin', 'admin');
+Route::resource('reseller', 'reseller');
+Route::resource('rolls', 'rollsctr');
