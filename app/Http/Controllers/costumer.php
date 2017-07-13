@@ -7,6 +7,7 @@ use APP\Http\Requests;
 use App\persons;//name model
 use App\rolls;
 use App\restful;
+use Auth;
 use Illuminate\Support\Facades\Validator;
 
 class costumer extends Controller
@@ -44,6 +45,7 @@ class costumer extends Controller
 
         }
         $data=Request::all();
+        $data['password']=bcrypt($data['password']);
         $newitem=persons::create($data);
        //store and validate new item 
        $type=new rolls;
@@ -56,6 +58,7 @@ class costumer extends Controller
        public function show(Request $request,$id)
     {
        
+
         $findID= persons::where('id', $id)->first(); 
         return $findID;
         //show items id 
