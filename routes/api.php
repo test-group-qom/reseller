@@ -22,3 +22,4 @@ Route::resource('admin', 'admin');
 Route::resource('reseller', 'reseller');
 Route::resource('rolls', 'rollsctr');
 Route::resource('login', 'login');
+Route::resource('logout', 'logout');
