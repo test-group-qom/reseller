@@ -43,7 +43,9 @@ class rollsctr extends Controller
             //show errors if validation dosnt tru
 
         }
+
         $data=Request::all();
+      
         $newitem=persons::create($data);
        //store and validate new item 
        $type=new rolls;

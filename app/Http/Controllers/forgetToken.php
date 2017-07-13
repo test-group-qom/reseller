@@ -17,9 +17,9 @@ class forgetToken extends Controller
            $finduser= persons::where('mobile', $user)->first(); 
            if (!empty($finduser))
              {
-                $finduser['token']=str_random(50);
+                $finduser['remember_token']=str_random(50);
                 $finduser->update();
-                return (['token'=>$finduser['token']]);
+                return (['remember_token'=>$finduser['remember_token']]);
              }
            return (response(['mobile'=>'your mobile dose not exist'],400));   
 }

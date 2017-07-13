@@ -24,3 +24,4 @@ Route::resource('rolls', 'rollsctr');
 Route::resource('login', 'login');
 Route::resource('logout', 'logout');
 Route::resource('forgetToken', 'forgetToken');
+Route::resource('saveNewPassword', 'saveNewPassword');
