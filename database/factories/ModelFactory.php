@@ -29,9 +29,23 @@ $factory->define(App\persons::class, function (Faker\Generator $faker) {
 });
 $factory->define(App\rolls::class, function (Faker\Generator $faker) {
   
+   $a=array("admin","reseller","costumer");
+   $random_keys=array_rand($a);   
     return [
-        'type' => $faker->name,
+        
+        'type' =>$a[$random_keys] ,
         'person_id' =>rand(1,50),
+        'details' => '{"b":"'.$faker->word.'"}',
+
+        ];
+});
+
+$factory->define(App\product::class, function (Faker\Generator $faker) {
+  
+    return [
+        'name' => $faker->name,
+        'creator' =>rand(1,50),
+        'description'=>$faker->word,
         'details' => '{"b":"'.$faker->word.'"}',
 
         ];

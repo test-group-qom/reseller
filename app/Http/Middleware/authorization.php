@@ -4,6 +4,7 @@
 namespace App\Http\Middleware;
 use App\persons;
 use App\rolls;
+use App\product;
 use Closure;
 
 class authorization
@@ -17,7 +18,7 @@ class authorization
      */
     public function handle($request, Closure $next,...$rols)
     {
-        $correct=0;
+        
         $token=request()->header('token');
         $check= persons::where('token', $token)->first();
         if(!empty($check["token"]))

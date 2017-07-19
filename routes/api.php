@@ -31,4 +31,9 @@ Route::resource('logout', 'logout');
 Route::resource('forgetToken', 'forgetToken');
 Route::resource('saveNewPassword', 'saveNewPassword');
 Route::post('auth','auth@store')->middleware(authorization::class.":admin,reseller");
-
+////relate product tabel
+Route::get('list','productCtl@index');
+Route::resource('showOne','productCtl');
+Route::delete('destroy/{id}','productCtl@destroy')->middleware(authorization::class.":admin");
+Route::post('store/{id}', 'productCtl@store')->middleware(authorization::class.":admin");
+Route::put('update/{id}','productCtl@update')->middleware(authorization::class.":admin");
