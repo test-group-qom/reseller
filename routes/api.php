@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\middleware\authorization;
-use App\Http\middleware\checkroll;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,12 +23,12 @@ Route::resource('delete', 'costumer');
 Route::resource('showById','costumer');
 Route::get('showAll','costumer@index');
 Route::post('storeCostumer', 'costumer@store');
-Route::post('storeAdmin', 'admin@store')->middleware(authorization::class.":admin");
+Route::post('storeAdmin', 'admin@store');
 Route::post('storeReseller', 'reseller@store');
 Route::resource('rolls', 'rollsctr');
 Route::resource('login', 'login');
 Route::resource('logout', 'logout');
 Route::resource('forgetToken', 'forgetToken');
 Route::resource('saveNewPassword', 'saveNewPassword');
-Route::post('towParameter','towParameter@store')->middleware(checkroll::class.":admin,reseller");
+Route::post('auth','auth@store')->middleware(authorization::class.":admin,reseller");
 
