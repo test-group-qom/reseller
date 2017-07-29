@@ -19,21 +19,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('delete', 'costumer');
-Route::resource('showById','costumer');
+Route::delete('delete/{id}', 'costumer@destroy');
+Route::get('showById/{id}','costumer@show');
 Route::get('showAll','costumer@index');
 Route::post('storeCostumer', 'costumer@store');
 Route::post('storeAdmin', 'admin@store');
 Route::post('storeReseller', 'reseller@store');
-Route::resource('rolls', 'rollsctr');
-Route::resource('login', 'login');
-Route::resource('logout', 'logout');
-Route::resource('forgetToken', 'forgetToken');
-Route::resource('saveNewPassword', 'saveNewPassword');
+Route::put('updateRoll/{id}', 'rollsctr@update')->middleware(authorization::class.":admin");
+Route::delete('deleteRoll/{id}','rollsctr@destroy')->middleware(authorization::class.":admin");
+Route::post('login', 'login@store');
+Route::post('logout', 'logout@store');
+Route::post('forgetToken', 'forgetToken@store');
+Route::post('saveNewPassword', 'saveNewPassword@store');
 Route::post('auth','auth@store')->middleware(authorization::class.":admin,reseller");
 ////relate product tabel
 Route::get('list','productCtl@index');
-Route::resource('showOne','productCtl');
+Route::get('showOne/{id}','productCtl@show');
 Route::delete('destroy/{id}','productCtl@destroy')->middleware(authorization::class.":admin");
 Route::post('store/{id}', 'productCtl@store')->middleware(authorization::class.":admin");
 Route::put('update/{id}','productCtl@update')->middleware(authorization::class.":admin");

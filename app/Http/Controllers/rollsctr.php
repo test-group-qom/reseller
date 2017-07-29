@@ -82,7 +82,6 @@ class rollsctr extends Controller
 
     $item = rolls::where('id', $id)->first();
     $a=Request::all();
-
     $item->type              = $a['type'];
     $item->save();
     return $item;
