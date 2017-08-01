@@ -38,3 +38,7 @@ Route::get('showOne/{id}','productCtl@show');
 Route::delete('destroy/{id}','productCtl@destroy')->middleware(authorization::class.":admin");
 Route::post('store/{id}', 'productCtl@store')->middleware(authorization::class.":admin");
 Route::put('update/{id}','productCtl@update')->middleware(authorization::class.":admin");
+/////relate price tabel
+Route::post('pricesave', 'priceCtr@store')->middleware(authorization::class.":admin");
+Route::get('priceshow/{id}', 'priceCtr@show');
+Route::get('allprice/{id}', 'priceCtr@showall');

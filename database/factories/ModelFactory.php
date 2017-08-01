@@ -50,3 +50,15 @@ $factory->define(App\product::class, function (Faker\Generator $faker) {
 
         ];
 });
+
+$factory->define(App\productPrice::class, function (Faker\Generator $faker) {
+  
+     $a=array("admin","reseller","costumer");
+     $random_keys=array_rand($a);
+    return [
+        'role' => $a[$random_keys],
+        'price' =>rand(1,50),
+        'product_id'=>rand(1,50),
+  
+        ];
+});
